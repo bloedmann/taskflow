@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import Flask, redirect, url_for
+from flask_login import current_user
 from .config import Config
 from .extensions import db, login_manager
 
@@ -26,6 +27,8 @@ def create_app():
 
     @app.route("/")
     def index():
-        return "Startseite"
+        if current_user.is_authenticated:
+            return redirect(url_for("tasks.dashboard"))
+        return redirect(url_for("auth.login"))
 
     return app
