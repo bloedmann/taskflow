@@ -4,6 +4,7 @@ from . import api_bp
 from app.models import User, Task
 
 
+# Gibt eine 401-Antwort für nicht authentifizierte API-Zugriffe zurück
 def unauthorized():
     return Response(
         response='{"error":"Authentifizierung erforderlich"}',
@@ -13,6 +14,7 @@ def unauthorized():
     )
 
 
+# Prüft die Basic-Auth-Daten und gibt den Benutzer zurück
 def get_api_user():
     auth = request.authorization
 
@@ -27,6 +29,7 @@ def get_api_user():
     return None
 
 
+# Wandelt ein Task-Objekt in ein Dictionary um
 def task_to_dict(task):
     return {
         "id": task.id,
@@ -38,6 +41,7 @@ def task_to_dict(task):
     }
 
 
+# Gibt alle Tasks des authentifizierten Benutzers zurück
 @api_bp.route("/tasks", methods=["GET"])
 def get_tasks():
     user = get_api_user()
@@ -52,6 +56,7 @@ def get_tasks():
     })
 
 
+# Gibt einen bestimmten Task des Benutzers zurück
 @api_bp.route("/tasks/<int:task_id>", methods=["GET"])
 def get_task(task_id):
     user = get_api_user()
