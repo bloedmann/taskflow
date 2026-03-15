@@ -1,7 +1,9 @@
+/* Einheitliches Box-Modell für alle Elemente */
 * {
     box-sizing: border-box;
 }
 
+/* Grundlayout der Seite */
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -9,12 +11,14 @@ body {
     color: #1f2937;
 }
 
+/* Zentrierter Hauptcontainer */
 .container {
     width: 90%;
     max-width: 1100px;
     margin: 0 auto;
 }
 
+/* Obere Navigationsleiste */
 .topbar {
     background: #111827;
     color: white;
@@ -22,12 +26,14 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
+/* Inhalt der Topbar */
 .topbar-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* Logo/Markenname */
 .brand a {
     color: white;
     text-decoration: none;
@@ -35,34 +41,41 @@ body {
     font-weight: bold;
 }
 
+/* Navigation rechts */
 .nav {
     display: flex;
     align-items: center;
     gap: 14px;
 }
 
+/* Benutzername in der Navigation */
 .nav-user {
     color: #d1d5db;
 }
 
+/* Navigationslinks */
 .nav-link {
     color: white;
     text-decoration: none;
     font-weight: 600;
 }
 
+/* Hover-Effekt für Links */
 .nav-link:hover {
     text-decoration: underline;
 }
 
+/* Logout-Link farblich hervorheben */
 .logout {
     color: #fca5a5;
 }
 
+/* Hauptbereich */
 main.container {
     padding: 32px 0;
 }
 
+/* Seitenkopf */
 .page-header {
     margin-bottom: 24px;
 }
@@ -77,6 +90,7 @@ main.container {
     color: #6b7280;
 }
 
+/* Zweispaltiges Layout */
 .grid-layout {
     display: grid;
     grid-template-columns: 320px 1fr;
@@ -84,6 +98,7 @@ main.container {
     align-items: start;
 }
 
+/* Karten-Design */
 .card {
     background: white;
     border-radius: 14px;
@@ -97,6 +112,7 @@ main.container {
     font-size: 22px;
 }
 
+/* Formularabstände */
 .task-form .form-group {
     margin-bottom: 16px;
 }
@@ -107,6 +123,7 @@ main.container {
     font-weight: 600;
 }
 
+/* Eingabefelder */
 .input-field {
     width: 100%;
     padding: 11px 12px;
@@ -116,15 +133,18 @@ main.container {
     background: white;
 }
 
+/* Fokusstil für Eingaben */
 .input-field:focus {
     outline: none;
     border-color: #2563eb;
 }
 
+/* Bereich für Buttons */
 .form-actions {
     margin-top: 10px;
 }
 
+/* Allgemeines Button-Styling */
 .btn {
     border: none;
     border-radius: 10px;
@@ -134,31 +154,37 @@ main.container {
     cursor: pointer;
 }
 
+/* Primärer Button */
 .btn-primary {
     background: #2563eb;
     color: white;
 }
 
+/* Sekundärer Button */
 .btn-secondary {
     background: #e5e7eb;
     color: #111827;
 }
 
+/* Gefährlicher Button */
 .btn-danger {
     background: #dc2626;
     color: white;
 }
 
+/* Hover-Effekt für Buttons */
 .btn:hover {
     opacity: 0.92;
 }
 
+/* Aufgabenliste */
 .task-list {
     display: flex;
     flex-direction: column;
     gap: 14px;
 }
 
+/* Einzelne Aufgabe */
 .task-item {
     border-left: 8px solid #d1d5db;
     background: #f9fafb;
@@ -170,6 +196,7 @@ main.container {
     align-items: flex-start;
 }
 
+/* Prioritätsfarben */
 .priority-hoch {
     border-left-color: #dc2626;
 }
@@ -182,10 +209,12 @@ main.container {
     border-left-color: #16a34a;
 }
 
+/* Hauptinhalt einer Aufgabe */
 .task-main {
     flex: 1;
 }
 
+/* Zeile mit Titel und Badge */
 .task-title-row {
     display: flex;
     align-items: center;
@@ -194,11 +223,13 @@ main.container {
     margin-bottom: 8px;
 }
 
+/* Titel der Aufgabe */
 .task-title {
     margin: 0;
     font-size: 18px;
 }
 
+/* Badge für Priorität */
 .priority-badge {
     padding: 6px 10px;
     border-radius: 999px;
@@ -209,6 +240,7 @@ main.container {
     text-align: center;
 }
 
+/* Farben der Prioritäts-Badges */
 .priority-badge-hoch {
     background: #dc2626;
 }
@@ -221,11 +253,13 @@ main.container {
     background: #16a34a;
 }
 
+/* Zusatzinfos zur Aufgabe */
 .task-meta {
     margin: 0;
     color: #4b5563;
 }
 
+/* Statusfarben */
 .status-open {
     font-weight: 700;
     color: #2563eb;
@@ -236,6 +270,7 @@ main.container {
     color: #16a34a;
 }
 
+/* Darstellung erledigter Aufgaben */
 .task-done {
     opacity: 0.75;
 }
@@ -244,6 +279,7 @@ main.container {
     text-decoration: line-through;
 }
 
+/* Aktionsbereich einer Aufgabe */
 .task-actions {
     display: flex;
     flex-direction: column;
@@ -255,6 +291,7 @@ main.container {
     margin: 0;
 }
 
+/* Leerer Zustand */
 .empty-state {
     padding: 18px;
     border-radius: 12px;
@@ -262,10 +299,12 @@ main.container {
     color: #6b7280;
 }
 
+/* Bereich für Flash-Messages */
 .flash-wrapper {
     margin-bottom: 20px;
 }
 
+/* Allgemeines Flash-Design */
 .flash {
     padding: 12px 14px;
     border-radius: 10px;
@@ -273,6 +312,7 @@ main.container {
     font-weight: 600;
 }
 
+/* Flash-Typen */
 .flash-success {
     background: #dcfce7;
     color: #166534;
@@ -293,6 +333,7 @@ main.container {
     color: #1d4ed8;
 }
 
+/* Responsives Layout für kleinere Bildschirme */
 @media (max-width: 850px) {
     .grid-layout {
         grid-template-columns: 1fr;
