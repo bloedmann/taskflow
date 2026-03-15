@@ -1,24 +1,33 @@
 <!doctype html>
 <html lang="de">
 <head>
+    <!-- Grundlegende Meta-Daten der Seite -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Titel der Seite, kann in Unterseiten überschrieben werden -->
     <title>{% block title %}Taskflow{% endblock %}</title>
+
+    <!-- Einbindung der CSS-Datei -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <!-- Kopfbereich mit Navigation -->
     <header class="topbar">
         <div class="container topbar-inner">
             <div class="brand">
+                <!-- Link zum Dashboard -->
                 <a href="{{ url_for('tasks.dashboard') }}">Taskflow</a>
             </div>
 
             <nav class="nav">
                 {% if current_user.is_authenticated %}
+                    <!-- Anzeige für eingeloggte Benutzer -->
                     <span class="nav-user">Hallo, {{ current_user.username }}</span>
                     <a class="nav-link" href="{{ url_for('tasks.dashboard') }}">Dashboard</a>
                     <a class="nav-link logout" href="{{ url_for('auth.logout') }}">Logout</a>
                 {% else %}
+                    <!-- Links für nicht eingeloggte Benutzer -->
                     <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a>
                     <a class="nav-link" href="{{ url_for('auth.register') }}">Registrieren</a>
                 {% endif %}
@@ -26,9 +35,11 @@
         </div>
     </header>
 
+    <!-- Hauptinhalt der Seite -->
     <main class="container">
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
+                <!-- Bereich für Flash-Nachrichten -->
                 <div class="flash-wrapper">
                     {% for category, message in messages %}
                         <div class="flash flash-{{ category }}">{{ message }}</div>
@@ -37,6 +48,7 @@
             {% endif %}
         {% endwith %}
 
+        <!-- Platzhalter für Seiteninhalt -->
         {% block content %}{% endblock %}
     </main>
 </body>
