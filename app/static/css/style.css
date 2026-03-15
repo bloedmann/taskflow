@@ -1,0 +1,309 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #1f2937;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.topbar {
+    background: #111827;
+    color: white;
+    padding: 16px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.topbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.nav-user {
+    color: #d1d5db;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.logout {
+    color: #fca5a5;
+}
+
+main.container {
+    padding: 32px 0;
+}
+
+.page-header {
+    margin-bottom: 24px;
+}
+
+.page-header h1 {
+    margin-bottom: 6px;
+    font-size: 32px;
+}
+
+.page-header p {
+    margin: 0;
+    color: #6b7280;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.card {
+    background: white;
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 22px;
+}
+
+.task-form .form-group {
+    margin-bottom: 16px;
+}
+
+.task-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.input-field {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 15px;
+    background: white;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.form-actions {
+    margin-top: 10px;
+}
+
+.btn {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-secondary {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+.btn-danger {
+    background: #dc2626;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.92;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.task-item {
+    border-left: 8px solid #d1d5db;
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: flex-start;
+}
+
+.priority-hoch {
+    border-left-color: #dc2626;
+}
+
+.priority-mittel {
+    border-left-color: #f59e0b;
+}
+
+.priority-niedrig {
+    border-left-color: #16a34a;
+}
+
+.task-main {
+    flex: 1;
+}
+
+.task-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.task-title {
+    margin: 0;
+    font-size: 18px;
+}
+
+.priority-badge {
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    min-width: 80px;
+    text-align: center;
+}
+
+.priority-badge-hoch {
+    background: #dc2626;
+}
+
+.priority-badge-mittel {
+    background: #f59e0b;
+}
+
+.priority-badge-niedrig {
+    background: #16a34a;
+}
+
+.task-meta {
+    margin: 0;
+    color: #4b5563;
+}
+
+.status-open {
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.status-done {
+    font-weight: 700;
+    color: #16a34a;
+}
+
+.task-done {
+    opacity: 0.75;
+}
+
+.done-text {
+    text-decoration: line-through;
+}
+
+.task-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 170px;
+}
+
+.task-actions form {
+    margin: 0;
+}
+
+.empty-state {
+    padding: 18px;
+    border-radius: 12px;
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+.flash-wrapper {
+    margin-bottom: 20px;
+}
+
+.flash {
+    padding: 12px 14px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.flash-success {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.flash-danger {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.flash-warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.flash-info {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+@media (max-width: 850px) {
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .task-item {
+        flex-direction: column;
+    }
+
+    .task-actions {
+        width: 100%;
+        min-width: unset;
+    }
+}

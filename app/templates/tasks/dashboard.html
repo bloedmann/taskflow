@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}Meine To-dos{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Meine To-dos</h1>
+    <p>Prioritäten werden automatisch sortiert: Hoch, Mittel, Niedrig.</p>
+</div>
+
+<div class="grid-layout">
+    <section class="card">
+        <h2>Neue Aufgabe</h2>
+
+        <form method="POST" class="task-form">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                {{ form.title.label }}
+                {{ form.title(class="input-field", placeholder="z. B. Projektbericht fertigstellen") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.priority.label }}
+                {{ form.priority(class="input-field") }}
+            </div>
+
+            <div class="form-actions">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+    </section>
+
+    <section class="card">
+        <h2>Aufgabenliste</h2>
+
+        {% if tasks %}
+            <div class="task-list">
+                {% for task in tasks %}
+                    <div class="task-item priority-{{ task.priority }} {% if task.is_done %}task-done{% endif %}">
+                        <div class="task-main">
+                            <div class="task-title-row">
+                                <h3 class="task-title">
+                                    {% if task.is_done %}
+                                        <span class="done-text">{{ task.title }}</span>
+                                    {% else %}
+                                        {{ task.title }}
+                                    {% endif %}
+                                </h3>
+
+                                <span class="priority-badge priority-badge-{{ task.priority }}">
+                                    {{ task.priority|capitalize }}
+                                </span>
+                            </div>
+
+                            <p class="task-meta">
+                                Status:
+                                {% if task.is_done %}
+                                    <span class="status-done">Erledigt</span>
+                                {% else %}
+                                    <span class="status-open">Offen</span>
+                                {% endif %}
+                            </p>
+                        </div>
+
+                        <div class="task-actions">
+                            <form method="POST" action="{{ url_for('tasks.toggle_task', task_id=task.id) }}">
+                                {{ form.hidden_tag() }}
+                                <button type="submit" class="btn btn-secondary">
+                                    {% if task.is_done %}
+                                        Als offen markieren
+                                    {% else %}
+                                        Als erledigt markieren
+                                    {% endif %}
+                                </button>
+                            </form>
+
+                            <form method="POST" action="{{ url_for('tasks.delete_task', task_id=task.id) }}">
+                                {{ form.hidden_tag() }}
+                                <button type="submit" class="btn btn-danger">
+                                    Löschen
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="empty-state">
+                Noch keine Aufgaben vorhanden.
+            </div>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}
