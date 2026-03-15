@@ -3,12 +3,14 @@
 {% block title %}Meine To-dos{% endblock %}
 
 {% block content %}
+<!-- Seitenüberschrift -->
 <div class="page-header">
     <h1>Meine To-dos</h1>
     <p>Prioritäten werden automatisch sortiert: Hoch, Mittel, Niedrig.</p>
 </div>
 
 <div class="grid-layout">
+    <!-- Formular zum Erstellen einer neuen Aufgabe -->
     <section class="card">
         <h2>Neue Aufgabe</h2>
 
@@ -31,12 +33,14 @@
         </form>
     </section>
 
+    <!-- Bereich für die Aufgabenliste -->
     <section class="card">
         <h2>Aufgabenliste</h2>
 
         {% if tasks %}
             <div class="task-list">
                 {% for task in tasks %}
+                    <!-- Einzelne Aufgabe -->
                     <div class="task-item priority-{{ task.priority }} {% if task.is_done %}task-done{% endif %}">
                         <div class="task-main">
                             <div class="task-title-row">
@@ -63,6 +67,7 @@
                             </p>
                         </div>
 
+                        <!-- Aktionen für die Aufgabe -->
                         <div class="task-actions">
                             <form method="POST" action="{{ url_for('tasks.toggle_task', task_id=task.id) }}">
                                 {{ form.hidden_tag() }}
@@ -86,6 +91,7 @@
                 {% endfor %}
             </div>
         {% else %}
+            <!-- Anzeige, wenn keine Aufgaben vorhanden sind -->
             <div class="empty-state">
                 Noch keine Aufgaben vorhanden.
             </div>
