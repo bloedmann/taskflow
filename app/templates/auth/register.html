@@ -3,31 +3,40 @@
 {% block title %}Registrieren{% endblock %}
 
 {% block content %}
+<!-- Überschrift der Registrierungsseite -->
 <h1>Registrieren</h1>
 
+<!-- Registrierungsformular -->
 <form method="POST">
     {{ form.hidden_tag() }}
 
     <p>
+        <!-- Eingabefeld für den Benutzernamen -->
         {{ form.username.label }}<br>
         {{ form.username(size=32) }}
     </p>
 
     <p>
+        <!-- Eingabefeld für die E-Mail -->
         {{ form.email.label }}<br>
         {{ form.email(size=32) }}
     </p>
 
     <p>
+        <!-- Eingabefeld für das Passwort -->
         {{ form.password.label }}<br>
         {{ form.password(size=32) }}
     </p>
 
     <p>
+        <!-- Eingabefeld zur Passwort-Bestätigung -->
         {{ form.confirm_password.label }}<br>
         {{ form.confirm_password(size=32) }}
     </p>
 
-    <p>{{ form.submit() }}</p>
+    <p>
+        <!-- Button zum Absenden des Formulars -->
+        {{ form.submit() }}
+    </p>
 </form>
 {% endblock %}
